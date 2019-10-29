@@ -3,15 +3,34 @@
 //body
 
 const theBody = document.querySelector('body')
+const navBar = document.querySelector('header')
 
 theBody.addEventListener('dblclick', (e)=> {
     alert(`Seriously? What's the point of doubleclicking this?`);
 })
+
+document.addEventListener('scroll', (e)=> {
+    theBody.style.backgroundColor = "black";
+    theBody.style.color = "white";
+    navBar.style.backgroundColor = "lightseagreen";
+    navBar.style.color = "white";
+})
+
+
 //nav
 
-//intro
+//center all the h2
+const headerTwo = document.querySelectorAll('h2');
+
+window.addEventListener("resize", () =>{
+    headerTwo.forEach(hTwo =>{
+        hTwo.style.textAlign = "center";
+    })
+})
 
 //content
+
+
 
 //destinations
 
@@ -19,12 +38,13 @@ const destinations = document.querySelectorAll('.destination');
 
 destinations.forEach( place => {
     place.addEventListener('mouseover', (e) => {
-        place.style.backgroundColor = 'whitesmoke';
+        place.style.backgroundColor = 'mediumaquamarine';
+        place.style.transform = "scale(1.2)";
+        place.style.transition = "all 0.3s";
     })
-})
-
-destinations.forEach( place => {
     place.addEventListener('mouseleave', (e) => {
         place.style.backgroundColor = 'transparent';
+        place.style.transform = "scale(1)";
+        place.style.transition = "all 0.3s";
     })
 })
