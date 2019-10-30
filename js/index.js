@@ -14,10 +14,25 @@ document.addEventListener('scroll', (e)=> {
     theBody.style.color = "white";
     navBar.style.backgroundColor = "lightseagreen";
     navBar.style.color = "white";
-})
+}, false)
 
 
 //nav
+
+const funBus = document.querySelector('.logo-heading')
+
+document.addEventListener('keydown', (e) =>{
+    funBus.style.fontSize = "60px";
+})
+
+const links = document.querySelectorAll('.nav-link')
+links.forEach(link => {
+    link.addEventListener('click', (e)=>{
+        e.preventDefault()
+        link.style.transform = "rotate(360deg)";
+        link.style.transition = "all 0.3s"
+    })
+})
 
 //center all the h2
 const headerTwo = document.querySelectorAll('h2');
@@ -29,7 +44,6 @@ window.addEventListener("resize", () =>{
 })
 
 //content
-
 
 
 //destinations
