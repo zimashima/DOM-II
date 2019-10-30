@@ -62,7 +62,7 @@ document.addEventListener("drop", (e) =>{
 
     if (e.target.className == 'newlocation'){
         var data = e.dataTransfer.getData("Text")
-        e.target.append(document.querySelector(data))
+        e.target.append("FUN BUS ")
         e.target.style.fontSize = "2rem"
         e.target.style.color = "mediumaquamarine"
         e.target.style.border = ""
