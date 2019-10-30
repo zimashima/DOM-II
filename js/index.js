@@ -30,7 +30,7 @@ links.forEach(link => {
     link.addEventListener('click', (e)=>{
         e.preventDefault()
         link.style.transform = "rotate(360deg)";
-        link.style.transition = "all 0.3s"
+        link.style.transition = "all 0.5s"
     })
 })
 
@@ -45,6 +45,15 @@ window.addEventListener("resize", () =>{
 
 //content
 
+const allPs = document.querySelectorAll('p')
+
+allPs.forEach(theP => {
+    theP.addEventListener('wheel', (e)=>{
+        theP.style.color = "black";
+        theP.style.backgroundColor = "mediumaquamarine";
+        e.stopPropagation()
+    })
+})
 
 //destinations
 
