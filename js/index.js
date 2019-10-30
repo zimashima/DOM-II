@@ -25,7 +25,54 @@ document.addEventListener('keydown', (e) =>{
     funBus.style.fontSize = "60px";
 })
 
+
+//drag nav bar to lower level
+
+const navLinks = document.querySelectorAll('.nav-link')
+
+let newLocation = document.createElement('div')
+document.querySelector('.intro').prepend(newLocation);
+
+navLinks.forEach( link => {
+    link.setAttribute('draggable', "true")
+})
+
+document.addEventListener('dragstart', (e)=>{
+    e.dataTransfer.setData('Text', e.target.className)
+    newLocation.style.height = "50px";
+    newLocation.style.width = "100%";
+    newLocation.setAttribute('class',"newlocation")
+})
+
+document.addEventListener('drag', (e)=>{
+})
+
+document.addEventListener("dragover", (e) => {
+    e.preventDefault();
+});
+
+document.addEventListener("dragenter", (e) => {
+    if ( e.target.className == "newlocation" ) {
+        e.target.style.border = "3px dotted red";
+      }
+});
+
+document.addEventListener("drop", (e) =>{
+    e.preventDefault();
+
+    if (e.target.className == 'newlocation'){
+        var data = e.dataTransfer.getData("Text")
+        e.target.append(document.querySelector(data))
+        e.target.style.fontSize = "2rem"
+        e.target.style.color = "mediumaquamarine"
+        e.target.style.border = ""
+        e.target.style.margin = "10px"
+    }
+})
+
+//flip the navigation links
 const links = document.querySelectorAll('.nav-link')
+
 links.forEach(link => {
     link.addEventListener('click', (e)=>{
         e.preventDefault()
